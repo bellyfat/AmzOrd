@@ -42,7 +42,3 @@ def orderCount(request):
 def detail(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     return render(request, 'TrackAmzOrd/detail.html', {'order': order})
-
-
-def result(request, order_id):
-    return HttpResponse("You're looking at the reuslts view - question %s." % order_id)
