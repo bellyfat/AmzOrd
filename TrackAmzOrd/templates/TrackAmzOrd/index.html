@@ -1,0 +1,14 @@
+<h3>Amazon Order History</h3>
+
+{% if latest_order %}
+    <ul>
+    {% for order in latest_order %}
+        <li><a href="/TrackAmzOrd/{{ order.id }}/">{{order.ord_name}}</a> -
+        {{order.ord_date}} - <a href={{order.ord_url}}>Product Link</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No orders are available.</p>
+{% endif %}
+
+<p><a href="/TrackAmzOrd/aPath">View Order Totals Chart</a></p>

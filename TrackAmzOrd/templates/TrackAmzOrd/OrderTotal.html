@@ -1,0 +1,28 @@
+<head>
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+{% if order_count %}
+    <h3>Number of Amazon Orders</h3>
+    <div id="chart"></div>
+{% else %}
+    <p>No orders are available.</p>
+{% endif %}
+<script>
+  var order_count = "{{ order_count }}".replace("[","").replace("]","");
+  var order_names = "{{ order_names }}".replace("[","").replace("]","");
+
+  order_count = order_count.split(",");
+  order_names = order_names.split(",");
+
+  var data = [
+    {
+      x: order_names,
+      y: order_count,
+      type: 'bar'
+    }
+  ];
+
+Plotly.newPlot('chart', data);
+</script>
+</body>
